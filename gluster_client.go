@@ -52,8 +52,8 @@ func execTouchOnVolumes(mountpoint string) (bool, error) {
 // returns VolumeInfoXML struct and error
 func ExecVolumeInfo() (structs.VolumeInfoXML, error) {
 	//args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster volume info --xml\""
-       //args := "docker exec glusterfs sh -c \"/usr/sbin/gluster volume info --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster volume info --xml""
+       //args := "docker exec glusterfs sh -c "/usr/sbin/gluster volume info --xml""
 	bytesBuffer, cmdErr := execGlusterCommand(args)
 	if cmdErr != nil {
 		return structs.VolumeInfoXML{}, cmdErr
@@ -71,7 +71,7 @@ func ExecVolumeInfo() (structs.VolumeInfoXML, error) {
 // returns VolumeList struct and error
 func ExecVolumeList() (structs.VolList, error) {
         //args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster volume list --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster volume list --xml""
         bytesBuffer, cmdErr := execGlusterCommand(args)
 	if cmdErr != nil {
 		return structs.VolList{}, cmdErr
@@ -89,7 +89,7 @@ func ExecVolumeList() (structs.VolList, error) {
 // returns PeerStatus struct and error
 func ExecPeerStatus() (structs.PeerStatus, error) {
         //args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster peer status --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster peer status --xml""
         bytesBuffer, cmdErr := execGlusterCommand(args)
 	if cmdErr != nil {
 		return structs.PeerStatus{}, cmdErr
@@ -108,7 +108,7 @@ func ExecPeerStatus() (structs.PeerStatus, error) {
 func ExecVolumeProfileGvInfoCumulative(volumeName string) (structs.VolProfile, error) {
         //args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
         //args := "docker exec -it glusterfs /usr/sbin/gluster volume profile "+volumeName+" info cumulative --xml"
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster volume profile " + volumeName + " info cumulative --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster volume profile " + volumeName + " info cumulative --xml""
         bytesBuffer, cmdErr := execGlusterCommand(args)
 	if cmdErr != nil {
 		return structs.VolProfile{}, cmdErr
@@ -125,7 +125,7 @@ func ExecVolumeProfileGvInfoCumulative(volumeName string) (structs.VolProfile, e
 // returns VolumeStatusXML struct and error
 func ExecVolumeStatusAllDetail() (structs.VolumeStatusXML, error) {
         //args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster volume status all detail --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster volume status all detail --xml""
         bytesBuffer, cmdErr := execGlusterCommand(args)
 	if cmdErr != nil {
 		return structs.VolumeStatusXML{}, cmdErr
@@ -143,7 +143,7 @@ func ExecVolumeStatusAllDetail() (structs.VolumeStatusXML, error) {
 func ExecVolumeHealInfo(volumeName string) (int, error) {
         //args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
         //args := "docker exec -it glusterfs /usr/sbin/gluster volume heal "+volumeName+" info --xml"
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster volume heal " + volumeName + " info --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster volume heal " + volumeName + " info --xml""
         bytesBuffer, cmdErr := execGlusterCommand(args)
 	entriesOutOfSync := 0
 	if cmdErr != nil {
@@ -173,7 +173,7 @@ func ExecVolumeHealInfo(volumeName string) (int, error) {
 func ExecVolumeQuotaList(volumeName string) (structs.VolumeQuotaXML, error) {
         //args := []string{"docker","exec","-it","glusterfs","/usr/sbin/gluster","volume", "info"}
         //args := "docker exec -it glusterfs /usr/sbin/gluster volume quota "+volumeName+" list --xml"
-        args := "docker exec " + containerName + " sh -c \"/usr/sbin/gluster volume quota " + volumeName + " list --xml\""
+        args := "docker exec " + containerName + " sh -c "/usr/sbin/gluster volume quota " + volumeName + " list --xml""
         bytesBuffer, cmdErr := execGlusterCommand(args)
 	if cmdErr != nil {
 		return structs.VolumeQuotaXML{}, cmdErr
