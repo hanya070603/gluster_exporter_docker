@@ -1,15 +1,20 @@
-[![Build Status](https://travis-ci.org/ofesseler/gluster_exporter.svg?branch=dev)](https://travis-ci.org/ofesseler/gluster_exporter)
-[![CircleCI](https://circleci.com/gh/ofesseler/gluster_exporter/tree/dev.svg?style=svg)](https://circleci.com/gh/ofesseler/gluster_exporter/tree/dev)
+
 # gluster_exporter
 Gluster exporter for Prometheus
 
 
-## Installation
+## Installation (glusterfs docker should be install localhost and cantannername should be glusterfs)
 
 ```
-go get github.com/ofesseler/gluster_exporter
-./gluster_exporter
+mkdir -p /data/gluster_exporter
+cd /data/gluster_exporter
+cp Dockerfile ./
+docker build -t gluster_exporter:latest .
+./gluster_exporter.sh
+
 ```
+# Testing and Verify
+curl http:localhost:9189/metrics
 
 ## Usage of `gluster_exporter`
 
@@ -26,22 +31,6 @@ go get github.com/ofesseler/gluster_exporter
 | --log.level               | `info`              | Only log messages with the given severity or above. Valid levels: [debug, info, warn, error, fatal]
 | --version                 | -                   | Prints version information
 
-## Make
-```
-build: Go build
-docker: build and run in docker container
-gometalinter: run some linting checks
-gotest: run go tests and reformats
-
-```
-
-**build**: runs go build for gluster_exporter
-
-**docker**: runs docker build and copy new built gluster_exporter
-
-**gometalinter**: runs [gometalinter](https://github.com/alecthomas/gometalinter) lint tools
-
-**gotest**: runs *vet* and *fmt* go tools
 
 ## Relevant Gluster Metrics
 Commands within the exporter are executed with `--xml`.
@@ -125,7 +114,9 @@ Another transaction is in progress for gv_cluster. Please try again after someti
 ## Contributors
 - coder-hugo
 - mjtrangoni
+- ofesseler
 
 ## Similar Projects
 glusterfs exporter for prometheus written in rust.
 - https://github.com/ibotty/glusterfs-exporter
+- https://github.com/ofesseler/gluster_exporter
