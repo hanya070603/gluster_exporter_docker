@@ -3,7 +3,7 @@
 Gluster exporter for Prometheus
 
 
-## Installation (glusterfs docker should be install localhost and cantannername should be glusterfs)
+## Installation (glusterfs docker should be install localhost and containerName should be glusterfs)
 
 ```
 mkdir -p /data/gluster_exporter
