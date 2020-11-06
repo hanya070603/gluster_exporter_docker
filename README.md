@@ -14,7 +14,7 @@ docker build -t gluster_exporter:latest .
 
 ```
 # Testing and Verify
-curl http:localhost:9189/metrics
+curl http://localhost:9189/metrics
 
 ## Usage of `gluster_exporter`
 
